@@ -5,11 +5,12 @@ import Error from "./pages/error";
 import Movie from "./pages/movie";
 import TvSeries from "./pages/tv-series";
 import Bookmark from "./pages/bookmark";
+import { useContext } from "react";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Login />,
+    element: <Home />,
     errorElement: <Error />,
   },
   {

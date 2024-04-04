@@ -11,11 +11,11 @@ const navLinks = [
     icon: homeIcon,
     link: "/home",
   },
-  {
-    name: "Login",
-    icon: homeIcon,
-    link: "/",
-  },
+  // {
+  //   name: "Login",
+  //   icon: homeIcon,
+  //   link: "/",
+  // },
   {
     name: "Movies",
     icon: movieIcon,
@@ -78,7 +78,7 @@ const Sidebar = () => {
             fontWeight={400}
             fontSize={18}
           >
-            PikaShowApp
+            Shubhams Streeming
           </Typography>
         </Hidden>
 

@@ -8,15 +8,28 @@ import {
   Typography,
 } from "@mui/material";
 import movieBg from "../../assets/movie-bg1.jpg";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import user from "../../data/login.json";
+import { MovieContext } from "../../context/movie-context";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const { dispatch } = useContext(MovieContext); // Access dispatch using useContext
+
   const submitHandle = (e: any) => {
     e.preventDefault();
-    console.log(`Email : ${email} and Password : ${password}`);
+    const userAuth = user.find(
+      (u) => u.username === email && u.password === password
+    );
+    if (userAuth) {
+      dispatch({ type: "LOGIN", }); // Dispatch login action if user is authenticated
+      // Redirect or perform any other action upon successful login
+    } else {
+      // Handle login failure
+      alert("Invalid username or password");
+    }
     setEmail("");
     setPassword("");
   };

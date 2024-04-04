@@ -7,17 +7,19 @@ interface MovieContextProps {
 
 interface MovieState {
   movies: MovieDataType[];
+  isLoggedIn?: boolean;
 }
 
 interface MovieAction {
   type: string;
-  id: string;
+  id?: string;
 }
 
 const MovieList: MovieDataType[] = moviesData;
 
 const initalMovieState: MovieState = {
   movies: MovieList,
+  isLoggedIn: false,
 };
 
 const MovieReducer = (state: MovieState, action: MovieAction): MovieState => {
@@ -31,6 +33,16 @@ const MovieReducer = (state: MovieState, action: MovieAction): MovieState => {
           }
           return movie;
         }),
+      };
+    case "LOGIN": // Handle login action
+      return {
+        ...state,
+        isLoggedIn: true,
+      };
+    case "LOGOUT": // Handle logout action
+      return {
+        ...state,
+        isLoggedIn: false,
       };
     default:
       return state;
